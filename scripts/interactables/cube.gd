@@ -1,11 +1,23 @@
 extends RigidBody3D
 
-var is_held = false
+var original_layer = 1
+var original_mask = 1
 
 func grab():
-	is_held = true
+	print("Grabbed")
+
 	freeze = true
 
+	# Disable collisions while holding
+	collision_layer = 0
+	collision_mask = 0
+
+
 func drop():
-	is_held = false
+	print("Dropped")
+
 	freeze = false
+
+	# Re-enable collisions
+	collision_layer = original_layer
+	collision_mask = original_mask
