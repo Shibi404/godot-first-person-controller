@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqnnh0je6tkrh"]
 
 [ext_resource type="Script" uid="uid://eqtktppkvo7h" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://d4aqxc3s3hbuw" path="res://scripts/player/hand.gd" id="2_dovo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f645a"]
 radius = 0.4
@@ -8,7 +9,6 @@ radius = 0.4
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6tqj4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6tqj4"]
-radius = 0.25
 
 [node name="Player" type="CharacterBody3D" unique_id=252527951]
 script = ExtResource("1_8afob")
@@ -27,6 +27,7 @@ mesh = SubResource("CapsuleMesh_6tqj4")
 
 [node name="RightHand" type="Node3D" parent="Camera3D" unique_id=701994905]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.4, -0.3, -0.5)
+script = ExtResource("2_dovo2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/RightHand" unique_id=19578334]
 mesh = SubResource("CapsuleMesh_6tqj4")
@@ -35,3 +36,9 @@ mesh = SubResource("CapsuleMesh_6tqj4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/RightHand/Area3D" unique_id=630209017]
 shape = SubResource("SphereShape3D_6tqj4")
+
+[node name="HoldPoint" type="Marker3D" parent="Camera3D/RightHand" unique_id=1688887394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[connection signal="body_entered" from="Camera3D/RightHand/Area3D" to="Camera3D/RightHand" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Camera3D/RightHand/Area3D" to="Camera3D/RightHand" method="_on_area_3d_body_exited"]
