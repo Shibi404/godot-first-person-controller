@@ -33,6 +33,7 @@ script = ExtResource("2_dovo2")
 mesh = SubResource("CapsuleMesh_6tqj4")
 
 [node name="Area3D" type="Area3D" parent="Camera3D/RightHand" unique_id=2122712604]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/RightHand/Area3D" unique_id=630209017]
 shape = SubResource("SphereShape3D_6tqj4")
