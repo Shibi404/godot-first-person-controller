@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://v0picikbl5c2"]
 
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xxabe"]
+
+[sub_resource type="Sky" id="Sky_f645a"]
+sky_material = SubResource("PhysicalSkyMaterial_xxabe")
+
+[sub_resource type="Environment" id="Environment_6tqj4"]
+background_mode = 2
+sky = SubResource("Sky_f645a")
+
 [node name="main" type="Node3D" unique_id=1448883678]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1923314195]
+environment = SubResource("Environment_6tqj4")
