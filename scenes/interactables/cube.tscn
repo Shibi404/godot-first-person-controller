@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://2fxxdbslnfid"]
 
+[ext_resource type="Script" uid="uid://dvlol4d4qhnv3" path="res://scripts/interactables/cube.gd" id="1_s3hv1"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6tqj4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f645a"]
@@ -9,6 +11,7 @@ albedo_color = Color(0.12941177, 0.14117648, 1, 1)
 
 [node name="Cube" type="RigidBody3D" unique_id=94663326]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_s3hv1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1449419770]
 shape = SubResource("BoxShape3D_6tqj4")

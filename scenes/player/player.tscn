@@ -7,6 +7,9 @@ radius = 0.4
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6tqj4"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_6tqj4"]
+radius = 0.25
+
 [node name="Player" type="CharacterBody3D" unique_id=252527951]
 script = ExtResource("1_8afob")
 
@@ -27,3 +30,8 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.4, -0.3, -0.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/RightHand" unique_id=19578334]
 mesh = SubResource("CapsuleMesh_6tqj4")
+
+[node name="Area3D" type="Area3D" parent="Camera3D/RightHand" unique_id=2122712604]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/RightHand/Area3D" unique_id=630209017]
+shape = SubResource("SphereShape3D_6tqj4")
