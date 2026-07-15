@@ -9,6 +9,14 @@ sky_material = SubResource("PhysicalSkyMaterial_xxabe")
 background_mode = 2
 sky = SubResource("Sky_f645a")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6tqj4"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f645a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+albedo_color = Color(0.39, 0.208, 0, 1)
+
 [node name="main" type="Node3D" unique_id=1448883678]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1923314195]
@@ -16,3 +24,14 @@ environment = SubResource("Environment_6tqj4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=353890007]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1580096752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1331390760]
+shape = SubResource("BoxShape3D_6tqj4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1637158700]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_f645a")
+surface_material_override/0 = SubResource("StandardMaterial3D_7dm0k")
